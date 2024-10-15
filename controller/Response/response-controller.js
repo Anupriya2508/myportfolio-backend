@@ -41,6 +41,7 @@ const addResponse = async (req, res) => {
 
 // Retrieve all responses
 const getResponse = async (req, res) => {
+  console.log("all res req");
   try {
     const allResponses = await ResponseModel.aggregate([
       {
@@ -54,7 +55,7 @@ const getResponse = async (req, res) => {
         },
       },
     ]);
-
+    console.log("all res", allResponses);
     res.status(200).json(allResponses);
   } catch (err) {
     console.error("Error:", err);
